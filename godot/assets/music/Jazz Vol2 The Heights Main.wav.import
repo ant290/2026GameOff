@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0j530aephcqf"
+path="res://.godot/imported/Jazz Vol2 The Heights Main.wav-e67a7d13ce12412d7ecd08314db103a0.sample"
+
+[deps]
+
+source_file="res://assets/music/Jazz Vol2 The Heights Main.wav"
+dest_files=["res://.godot/imported/Jazz Vol2 The Heights Main.wav-e67a7d13ce12412d7ecd08314db103a0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

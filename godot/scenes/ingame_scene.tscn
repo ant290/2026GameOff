@@ -1,25 +1,59 @@
-[gd_scene load_steps=6 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://ovjegpk30m4h" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="2_h1yxu"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
-[ext_resource type="Script" uid="uid://cu3npowt4r1px" path="res://scenes/node_example.gd" id="3_a5686"]
 
-[node name="IngameScene" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_7qeea"]
+
+[node name="IngameScene" type="Node2D" unique_id=1164367020]
 script = ExtResource("1_objyc")
 
-[node name="NodeExample" type="Sprite2D" parent="." groups=["Persist"]]
-texture = ExtResource("2_h1yxu")
-script = ExtResource("3_a5686")
+[node name="UI" type="CanvasLayer" parent="." unique_id=379511077]
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="FadeOverlay" parent="UI" instance=ExtResource("1_y6ebv")]
+[node name="FadeOverlay" parent="UI" unique_id=138566355 instance=ExtResource("1_y6ebv")]
 unique_name_in_owner = true
 visible = false
 
-[node name="PauseOverlay" parent="UI" instance=ExtResource("3_8o178")]
+[node name="PauseOverlay" parent="UI" unique_id=990189419 instance=ExtResource("3_8o178")]
 unique_name_in_owner = true
 process_mode = 2
 visible = false
+
+[node name="Instructions" type="Label" parent="UI" unique_id=1146908609]
+offset_left = 51.0
+offset_top = 238.0
+offset_right = 216.0
+offset_bottom = 261.0
+text = "Press \"Shift\" to count"
+
+[node name="Score" type="Label" parent="UI" unique_id=228821119]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_7qeea")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DecimalScore" type="Label" parent="UI" unique_id=2053329073]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 23.0
+offset_right = 20.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1

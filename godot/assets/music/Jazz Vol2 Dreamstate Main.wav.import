@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfp1ye37lvwuu"
+path="res://.godot/imported/Jazz Vol2 Dreamstate Main.wav-cacd71036391e945c01d53e8cf84deb6.sample"
+
+[deps]
+
+source_file="res://assets/music/Jazz Vol2 Dreamstate Main.wav"
+dest_files=["res://.godot/imported/Jazz Vol2 Dreamstate Main.wav-cacd71036391e945c01d53e8cf84deb6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
