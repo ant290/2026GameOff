@@ -138,15 +138,9 @@ jobs:
       max-parallel: 4
       matrix:
         include:
-          - name: Linux
-            channel: linux
-            package: LinuxX11.zip
           - name: Windows
             channel: windows
             package: Windows.zip
-          - name: macOS
-            channel: mac
-            package: macOS.zip
           - name: HTML5
             channel: web
             package: HTML5.zip
