@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dvhwqhco7ej5k"]
+
+[ext_resource type="Texture2D" uid="uid://5l0q76yj4iap" path="res://assets/textures/bit_box_texture2.png" id="1_c7gua"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji488"]
+albedo_color = Color(0.2159017, 0.21590173, 0.2159017, 1)
+albedo_texture = ExtResource("1_c7gua")
+
+[sub_resource type="BoxMesh" id="BoxMesh_7qeea"]
+material = SubResource("StandardMaterial3D_ji488")
+
+[node name="Lever" type="Node3D" unique_id=845840535]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=517176797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.854)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=52235868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04280615, 0)
+mesh = SubResource("BoxMesh_7qeea")
