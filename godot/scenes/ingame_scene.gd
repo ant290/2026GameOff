@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var cube : RotatorCube
+
 @onready var fade_overlay = %FadeOverlay
 @onready var pause_overlay = %PauseOverlay
 
@@ -28,6 +30,8 @@ func _process(delta):
 		score += 1
 		score_label.text = String.num_int64(score, 2)
 		decimal_score.text = String.num_int64(score)
+		if is_instance_of(cube, RotatorCube):
+			cube.rollCube()
 		
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())

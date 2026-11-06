@@ -17,8 +17,9 @@ albedo_texture = ExtResource("4_7v5ay")
 [sub_resource type="BoxMesh" id="BoxMesh_7qeea"]
 material = SubResource("StandardMaterial3D_ji488")
 
-[node name="IngameScene" type="Node2D" unique_id=1164367020]
+[node name="IngameScene" type="Node2D" unique_id=1164367020 node_paths=PackedStringArray("cube")]
 script = ExtResource("1_objyc")
+cube = NodePath("SubViewport/BitCube/Cube")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=379511077]
 
