@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bsiceli07tg2x"]
+
+[ext_resource type="Texture2D" uid="uid://5l0q76yj4iap" path="res://assets/textures/bit_box_texture2.png" id="1_kmdky"]
+[ext_resource type="Script" uid="uid://b35w6s7ommyo6" path="res://scenes/cube_viewport.gd" id="1_pfi7h"]
+[ext_resource type="Script" uid="uid://8ac4b4xvmca7" path="res://scenes/cube.gd" id="2_pfi7h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji488"]
+albedo_texture = ExtResource("1_kmdky")
+
+[sub_resource type="BoxMesh" id="BoxMesh_7qeea"]
+material = SubResource("StandardMaterial3D_ji488")
+
+[node name="SubViewport" type="SubViewport" unique_id=480121438]
+own_world_3d = true
+transparent_bg = true
+script = ExtResource("1_pfi7h")
+
+[node name="BitCube" type="Node3D" parent="." unique_id=1299898244]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="BitCube" unique_id=160092765]
+transform = Transform3D(-0.49813324, -0.73281074, -0.46352124, 0.49582678, -0.6792739, 0.5410571, -0.71135026, 0.039692223, 0.701716, 0, 1.4647923, 1.6222248)
+shadow_enabled = true
+
+[node name="Cube" type="MeshInstance3D" parent="BitCube" unique_id=1701330082]
+mesh = SubResource("BoxMesh_7qeea")
+script = ExtResource("2_pfi7h")
+
+[node name="Camera3D" type="Camera3D" parent="BitCube" unique_id=2186316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.7281528)
+fov = 57.8
+
+[connection signal="roll_finished" from="BitCube/Cube" to="." method="_on_cube_roll_finished"]
