@@ -16,7 +16,7 @@ var score : int = 0
 
 func _ready() -> void:
 	for index in range(3):
-		add_cube_view(index)
+		add_cube_view(index, false)
 	
 	fade_overlay.visible = true
 	
@@ -25,7 +25,7 @@ func _ready() -> void:
 	
 	pause_overlay.game_exited.connect(_save_game)
 
-func add_cube_view(index: int) -> void:
+func add_cube_view(index: int, isTrue: bool) -> void:
 	var viewPort := CUBE_VIEWPORT.instantiate()
 	viewPort.cube_id = index
 	cube_viewports[index] = viewPort
@@ -35,6 +35,9 @@ func add_cube_view(index: int) -> void:
 	textureRect.texture = viewPort.get_texture()
 	textureRect.custom_maximum_size = Vector2(50,50)
 	counters.add_child(textureRect)
+	
+	if isTrue:
+		viewPort.rollCube()
 	viewPort.cube_roll_finished.connect(_on_cube_roll_finished)
 
 func _input(event) -> void:
@@ -64,4 +67,4 @@ func _on_cube_roll_finished(shouldFlowOver: bool, cube_id: int) -> void:
 		if cube_viewports.has(cube_id + 1):
 			cube_viewports[cube_id + 1].rollCube()
 		else:
-			add_cube_view(cube_viewports.size())
+			add_cube_view(cube_viewports.size(), true)
