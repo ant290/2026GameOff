@@ -66,7 +66,8 @@ static func save_game(tree:SceneTree):
 			if node.scale is Vector3:
 				save_data["scale_z"] = node.scale.z
 	
-		save_data["visible"] = node.visible
+		if save_data.has("visible"):
+			save_data["visible"] = node.visible
 
 		if node is CanvasItem:
 			save_data["modulate_r"] = node.modulate.r

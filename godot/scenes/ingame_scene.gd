@@ -12,8 +12,6 @@ var cube_viewports: Dictionary[int, CubeViewport] = {}
 @onready var score_label: Label = $UI/Score
 @onready var decimal_score: Label = $UI/DecimalScore
 
-var score : int = 0
-
 func _ready() -> void:
 	for index in range(3):
 		add_cube_view(index, false)
@@ -24,10 +22,12 @@ func _ready() -> void:
 		SaveGame.load_game(get_tree())
 	
 	pause_overlay.game_exited.connect(_save_game)
+	_update_score_display()
 
 func add_cube_view(index: int, isTrue: bool) -> void:
 	var viewPort := CUBE_VIEWPORT.instantiate()
 	viewPort.cube_id = index
+	viewPort.add_to_group(SaveGame.SAVE_GROUP_NAME)
 	cube_viewports[index] = viewPort
 	add_child(viewPort)
 
@@ -56,9 +56,12 @@ func _save_game() -> void:
 	SaveGame.save_game(get_tree())
 
 func _increase_score() -> void:
-	score += 1
-	score_label.text = String.num_int64(score, 2)
-	decimal_score.text = String.num_int64(score)
+	GameState.score += 1
+	_update_score_display()
+
+func _update_score_display() -> void:
+	score_label.text = String.num_int64(GameState.score, 2)
+	decimal_score.text = String.num_int64(GameState.score)
 
 func _on_cube_roll_finished(shouldFlowOver: bool, cube_id: int) -> void:
 	if cube_id == 0:
