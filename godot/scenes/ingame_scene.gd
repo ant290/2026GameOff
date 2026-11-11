@@ -13,15 +13,16 @@ var cube_viewports: Dictionary[int, CubeViewport] = {}
 @onready var decimal_score: Label = $UI/DecimalScore
 
 func _ready() -> void:
-	for index in range(3):
-		add_cube_view(index, false)
-	
 	fade_overlay.visible = true
 	
 	if SaveGame.has_save():
-		SaveGame.load_game(get_tree())
+		SaveGame.load_game()
 	
 	pause_overlay.game_exited.connect(_save_game)
+
+	for index in range(3):
+		add_cube_view(index, false)	
+	
 	_update_score_display()
 
 func add_cube_view(index: int, isTrue: bool) -> void:
@@ -53,7 +54,7 @@ func _process(delta):
 			cube_viewports[0].rollCube()
 		
 func _save_game() -> void:
-	SaveGame.save_game(get_tree())
+	SaveGame.save_game()
 
 func _increase_score() -> void:
 	GameState.score += 1
