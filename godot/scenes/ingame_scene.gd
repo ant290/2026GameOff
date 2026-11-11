@@ -20,10 +20,29 @@ func _ready() -> void:
 	
 	pause_overlay.game_exited.connect(_save_game)
 
-	for index in range(3):
-		add_cube_view(index, false)	
+	if GameState.score > 0:
+		set_loaded_game()
+	else:
+		set_new_game()
 	
 	_update_score_display()
+
+func set_new_game() -> void:
+	GameState.score = 0
+	for index in range(3):
+		add_cube_view(index, false)
+
+func set_loaded_game() -> void:
+	var loaded_score = String.num_int64(GameState.score, 2)
+	loaded_score = loaded_score.reverse()
+	
+	var loaded_binary_length = loaded_score.length()
+	if loaded_binary_length < 3:
+		loaded_binary_length = 3
+	
+	for index in range(loaded_binary_length):
+		var isTrue = loaded_score[index] == '1'
+		add_cube_view(index, isTrue)
 
 func add_cube_view(index: int, isTrue: bool) -> void:
 	var viewPort := CUBE_VIEWPORT.instantiate()

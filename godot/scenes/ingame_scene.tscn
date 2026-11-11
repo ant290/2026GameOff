@@ -21,15 +21,6 @@ offset_bottom = 20.0
 grow_vertical = 2
 layout_direction = 3
 
-[node name="FadeOverlay" parent="UI" unique_id=138566355 instance=ExtResource("1_y6ebv")]
-unique_name_in_owner = true
-visible = false
-
-[node name="PauseOverlay" parent="UI" unique_id=990189419 instance=ExtResource("3_8o178")]
-unique_name_in_owner = true
-process_mode = 2
-visible = false
-
 [node name="Instructions" type="Label" parent="UI" unique_id=1146908609]
 offset_left = 51.0
 offset_top = 238.0
@@ -67,3 +58,12 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FadeOverlay" parent="UI" unique_id=138566355 instance=ExtResource("1_y6ebv")]
+unique_name_in_owner = true
+visible = false
+
+[node name="PauseOverlay" parent="UI" unique_id=990189419 instance=ExtResource("3_8o178")]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
